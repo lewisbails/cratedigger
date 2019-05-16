@@ -1,0 +1,84 @@
+html{
+  min-height: 100vh;
+}
+
+body {
+  min-width: 400px;
+  height: 100%;
+  background-image: url("./images/6.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #cccccc;
+  background-size: cover;
+  background-position: center;
+}
+
+div, button {
+  margin: 10px;
+}
+
+p{
+  color: #FFFFFF;
+}
+
+.App {
+  text-align: center;
+  height: 100%;
+  margin-bottom: 0;
+}
+
+#root{
+  margin:0;
+  height: 100%;
+}
+
+.row{
+  min-height:50vh;
+}
+
+.playerInfo {
+  padding:0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  background-color: transparent;
+  border-color: #FFFFFF;
+  color: #FFFFFF;
+  transition: 0.25s;
+}
+
+.btn:focus{
+  box-shadow: none;
+}
+
+.raise:hover{
+  color: #60CE87;
+  border-color: #60CE87;
+  box-shadow: 0 0.5em 0.5em -0.4em;
+  transform: translateY(-0.25em);
+}
+
+.login:hover{
+  color: #8fbff5;
+  border-color: #8fbff5;
+}
+
+#fresh:hover{
+  color: #ff004d;
+  border-color: #ff004d;
+}
+
+.tile {
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.tile:hover {
+  color: #888888;
+  border-color: none;
+}
+
