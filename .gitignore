@@ -25,3 +25,4 @@ yarn-error.log*
 
 #keys
 /client/src/tokens.js
+/auth-server/authorization_code/server_side_tokens.js
