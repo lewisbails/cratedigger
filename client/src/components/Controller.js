@@ -40,7 +40,9 @@ export default class Controller extends Component {
                                     console.log(error);
                                 });
                             }
-                    })}}>
+                        })
+                        .catch((error)=>console.log(error))
+                    }}>
                         {
                             this.props.paused &&
                             'Play'

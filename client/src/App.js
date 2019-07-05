@@ -25,7 +25,7 @@ class App extends Component {
     }
   }
 
-  componentWillMount(){
+  componentDidMount(){
     if (this.state.loggedIn){
       this.getNowPlaying();
     }
@@ -105,5 +105,4 @@ class App extends Component {
   }
 }
 
-export default App;              
-//
+export default App;

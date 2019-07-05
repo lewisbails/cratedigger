@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../App.css';
 import ArtistTile from './ArtistTile';
 import SpotifyWebApi from 'spotify-web-api-js';
@@ -11,34 +11,31 @@ export default class TileBar extends Component {
         this.state = {};
     }
 
+    async shouldComponentUpdate(nextProps,nextState){
+        if (nextProps.info.name === this.props.info.name){
+            return false;
+        } else {
+            this.props = nextProps;
+            await this.getRelatedArtists();
+            return true;
+        }
+  }
+
     getRelatedArtists(){
         spotifyApi.getArtistRelatedArtists(this.props.info.id)
         .then((response)=>{
             this.setState({
                relatedArtists: response.artists.splice(0,5),
             });
-            // return new Promise((resolve,reject)=>resolve('success'));
             return
         })
         .catch((error)=>{
             this.setState({
                 relatedArtists: [],
             });
-            // return new Promise((resolve,reject)=>error);
             return
         })
       }
-
-    
-    async shouldComponentUpdate(nextProps,nextState){
-          if (nextProps.info.name === this.props.info.name){
-              return false;
-          } else {
-              this.props = nextProps;
-              await this.getRelatedArtists();
-              return true;
-          }
-    }
 
       render(){
         return <div>

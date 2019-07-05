@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {YT_API_KEY} from '../tokens';
+import React, { Component } from 'react';
+import { YT_API_KEY } from '../tokens';
 import './VideoPanel.css';
 const API_KEY = YT_API_KEY;
 
@@ -8,10 +8,6 @@ export default class VideoPanel extends Component {
   constructor(props){
     super(props);
     this.state = {videoAvailable: false};
-  }
-
-  componentWillMount(){
-    if (this.props.info.name) this.getVideo();
   }
 
     async shouldComponentUpdate(nextProps,nextState){
@@ -32,15 +28,13 @@ export default class VideoPanel extends Component {
       .then((data)=>{
           this.setState({video: data.items[0],
                           videoAvailable: true});
-          return new Promise((resolve,reject)=>resolve('success'));
+          return;
       })
       .catch((error)=>{
           console.log(error);
           this.setState({videoAvailable:false});
-          return new Promise((resolve,reject)=>reject('failure1'));
+          return;
       });
-        
-
     }
 
     render(){
@@ -50,12 +44,6 @@ export default class VideoPanel extends Component {
             <div className={"embed-responsive embed-responsive-16by9 video-div"}>
               <iframe title={ this.state.video.snippet.title } className={"embed-responsive-item video"} src={'https://www.youtube.com/embed/'+this.state.video.id.videoId} allowFullScreen />
             </div>
-          }
-          {
-            !this.state.videoAvailable &&
-            <div className={"embed-responsive embed-responsive-16by9 video-div"}>
-              <iframe title='chumdrumbedrum' className={"embed-responsive-item video"} src={'https://www.youtube.com/embed/tVj0ZTS4WF4'} allowFullScreen />
-          	</div>
           }
         </div>
       }
